@@ -3,9 +3,13 @@ import App from "./App.vue"
 
 // Vue Global Config
 Vue.config.productionTip = false
-Vue.config.errorHandler = function (err, vm, info) {
-  console.log("发生错误了")
-  console.dir({ "错误信息": err, "错误节点": vm, "错误过程": info })
+
+Vue.config.warnHandler = function (msg, vm, trace) {
+  console.log("警告开始")
+  console.log(msg)
+  console.log(vm)
+  console.log(trace)
+  console.log("警告结束")
 }
 
 new Vue({
