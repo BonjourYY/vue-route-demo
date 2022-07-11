@@ -1,36 +1,49 @@
 import Vue from 'vue'
+import App from "./App.vue"
 
+// Vue Global Config
 Vue.config.productionTip = false
+// Vue.config.silent = true
 
-console.log(window.location.pathname)
+// Vue.config.optionMergeStrategies.fqyoption = function (mixinOptions, componentOptions) {
+//   return { componentOptions, name: "343214" }
+// }
+
+// console.log(Vue.config.optionMergeStrategies)
 
 
-const About = { template: "<p>this is about page</p>" };
-const NotFound = { template: "<p>not found</p>" };
-const Home = { template: "<p>Home page</p>" }
 
+// 定义 Mixin 对象
+// let myMixin = {
+//   myoption: "q23412321",
+//   fqyoption: "fan"
+// }
 
-const routers = {
-  "/about": About,
-  "/": Home,
-}
+// 全局注册混入对象
+// Vue.mixin({
+//   created: function () {
+//     console.log(this)
+//   }
+// })
 
-const app = new Vue({
+new Vue({
   el: "#app",
   data: () => {
     return {
-      currentView: window.location.pathname
+      message: "world",
+      bar: "456"
     }
   },
-  computed: {
-    view: function () {
-      return routers[this.currentView] ? routers[this.currentView] : NotFound
-    }
+  created: function () {
+    console.log(this.$options.fqyoption)
   },
+  fqyoption: "qin",
+  // mixins: [myMixin],
   render: function (h) {
-    return h(this.view)
+    return h(App)
   }
 })
 
-console.log(app.view)
+
+
 

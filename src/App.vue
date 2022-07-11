@@ -12,7 +12,13 @@ export default {
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+  data: () => {
+    return {
+      message: "world-2",
+      bar: "456"
+    }
+  },
 }
 </script>
 
