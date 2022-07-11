@@ -12,6 +12,8 @@ Vue.config.warnHandler = function (msg, vm, trace) {
   console.log("警告结束")
 }
 
+// Vue.config.ignoredElements = ["Hello-1-World"]
+
 new Vue({
   el: "#app",
   data: () => {
