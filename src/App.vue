@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <p>{{fn1}}</p>
+    <input type="text" @keyup.ctrl.c="great($event)">
   </div>
 </template>
 
@@ -20,9 +20,9 @@ export default {
       bar: "456"
     }
   },
-  computed:{
-    fn1:function(){
-      return x;
+  methods:{
+    great:function(event){
+      console.log(event)
     }
   }
 }
