@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Hello-1-World msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>{{fn1}}</p>
   </div>
 </template>
 
@@ -19,6 +20,11 @@ export default {
       bar: "456"
     }
   },
+  computed:{
+    fn1:function(){
+      return x;
+    }
+  }
 }
 </script>
 
