@@ -1,30 +1,32 @@
 import Vue from 'vue'
-// import App from "./App.vue"
+import App from "./App.vue"
 
 // Vue Global Config
 Vue.config.productionTip = false
-
 Vue.config.performance = true;
 
-let mycomponent = Vue.extend({
-  template: "<p>我是范勤阳<p>"
+
+new Vue({
+  el: "#app",
+  data: function () {
+    return {
+      a: { name: "fanqinyang" }
+    }
+  },
+  methods: {
+    fn1: function () { }
+  },
+  render: function (h) {
+    return h(App)
+  }
 })
 
-let myComponent = new mycomponent();
-myComponent.$mount("#app")
+// 非响应式
+// app.$data.b = 2
 
-// new Vue({
-//   el: "#app",
-//   data: () => {
-//     return {
-//       message: "world",
-//       bar: "456"
-//     }
-//   },
-//   render: function (h) {
-//     return h(App)
-//   }
-// })
+
+
+
 
 
 
