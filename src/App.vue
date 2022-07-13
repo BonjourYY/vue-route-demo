@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <input type="text" @keyup="great1($event)">
-    <button @click="add" v-pin:[direction]="value">clice me</button>
+    <button @click="add" v-pin:[direction]="value">{{direction | myFilter1 | myFilter2}}</button>
   </div>
 </template>
 
@@ -40,6 +40,7 @@ export default {
     add: function () {
     },
   },
+  // 自定义指令
   directives: {
     pin: {
       bind: function (el, binding) {
@@ -47,6 +48,16 @@ export default {
         console.log(binding)
         el.style[binding.arg] = binding.value + "px"
       },
+    }
+  },
+  // 自定义过滤器
+  filters: {
+    myFilter1: function (value) {
+      return value.toString().charAt(0).toUpperCase() + value.toString().slice(1)
+    },
+    myFilter2: function (value) {
+      console.log(value)
+      return value;
     }
   }
 }
