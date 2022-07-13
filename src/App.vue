@@ -4,6 +4,8 @@
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <input type="text" @keyup="great1($event)">
     <button @click="add" v-pin:[direction]="value">{{direction | myFilter1 | myFilter2}}</button>
+    <my-component></my-component>
+    <my-component-2></my-component-2>
   </div>
 </template>
 

@@ -6,6 +6,11 @@ Vue.config.productionTip = false
 Vue.config.performance = true;
 // Vue.config.silent = true
 
+// 注册全局组件
+let myComponent = Vue.component("my-component", Vue.extend({ template: "<p>33132131356456436</p>" }))
+Vue.component("my-component-2", Vue.extend(myComponent))
+
+console.log(Vue.component("my-component"))
 
 new Vue({
   el: "#app",
