@@ -3,8 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <input type="text" @keyup="great1($event)">
-    <p>{{ obj }}</p>
-    <button @click="add">clice me</button>
+    <button @click="add" v-pin:[direction]="value">clice me</button>
   </div>
 </template>
 
@@ -24,7 +23,9 @@ export default {
   },
   data: function () {
     return {
-      obj
+      obj,
+      direction: "top",
+      value: "200"
     }
   },
   props: {
@@ -36,15 +37,17 @@ export default {
     great1: function (event) {
       console.log(event)
     },
-    name: {
-      male: "sex"
-    },
     add: function () {
-      this.$set(this.$data.obj, "default", "love")
-      this.$set(this.$options.methods.name, "default", "love")
-      console.log(this.$data.obj)
-      console.log(this.$options.methods.name)
     },
+  },
+  directives: {
+    pin: {
+      bind: function (el, binding) {
+        el.style.position = "fixed";
+        console.log(binding)
+        el.style[binding.arg] = binding.value + "px"
+      },
+    }
   }
 }
 

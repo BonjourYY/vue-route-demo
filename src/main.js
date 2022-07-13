@@ -4,6 +4,7 @@ import App from "./App.vue"
 // Vue Global Config
 Vue.config.productionTip = false
 Vue.config.performance = true;
+// Vue.config.silent = true
 
 
 new Vue({
