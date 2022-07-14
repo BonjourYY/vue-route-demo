@@ -8,7 +8,7 @@
     <my-component></my-component>
     <hello-world-1></hello-world-1>
     <my-abc></my-abc>
-
+    <p>{{valueX}}</p>
   </div>
 
 </template>
@@ -18,7 +18,7 @@
 
 import HelloWorld from './components/HelloWorld.vue'
 let myAbc = {
-  template: "<p>我是局部注册的组件</p>"
+  template: "<p>131313</p>"
 }
 
 let obj = {
@@ -70,6 +70,11 @@ export default {
     myFilter2: function (value) {
       console.log(value)
       return value;
+    }
+  },
+  computed: {
+    valueX: function () {
+      return "sdfsdjfl"
     }
   }
 }
