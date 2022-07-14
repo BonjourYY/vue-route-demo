@@ -3,14 +3,23 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <input type="text" @keyup="great1($event)">
+    <hello-world-1></hello-world-1>
     <button @click="add" v-pin:[direction]="value">{{direction | myFilter1 | myFilter2}}</button>
     <my-component></my-component>
-    <my-component-2></my-component-2>
-  </div>
-</template>
+    <hello-world-1></hello-world-1>
+    <my-abc></my-abc>
 
+  </div>
+
+</template>
+ 
 <script>
+
+
 import HelloWorld from './components/HelloWorld.vue'
+let myAbc = {
+  template: "<p>我是局部注册的组件</p>"
+}
 
 let obj = {
   message: "world-2",
@@ -21,7 +30,8 @@ let obj = {
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    myAbc
   },
   data: function () {
     return {
