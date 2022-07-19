@@ -8,7 +8,6 @@ Vue.config.performance = true;
 
 console.log(Vue.version)
 
-
 let aaaaa = new Vue({
   el: "#app",
   render: function (h) {
@@ -22,5 +21,16 @@ let aaaaa = new Vue({
     }
   }
 })
+
+var Comp = Vue.extend({
+  props: ['msg'],
+  template: '<div>{{ msg }}</div>'
+})
+
+new Comp({
+  propsData: {
+    msg: 'hello'
+  }
+}).$mount("#mymessage")
 
 console.log(aaaaa)
