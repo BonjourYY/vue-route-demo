@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="newVlue" :user-name="undefined" class="world" style="border:1px solid red" name="sadfsdf" />
-    <p>{{ name }}</p>
-    <p id="mymessage"></p>
+    <HelloWorld msg="Hello Vue HELLO VUE HEllo VUE" />
+    <p>{{a}}</p>
+    <p>{{ b }}</p>
   </div>
 
 </template>
@@ -19,21 +19,33 @@ export default {
   },
   data: () => {
     return {
-      name: "fanqinyang",
-      sex: "male",
-      obj: {
-        id: 100,
-        content: "woaini"
-      },
-      msgValue: "sadfsadfsdafsdaf"
-
+      a: 1,
     }
   },
-  props: {
+  computed: {
+    b: {
+      get: function () {
+        return this.a
+      },
+      set: function (value) {
+        return this.a = value
+      }
+    }
   },
-  methods: {
-  },
+  watch: {
+    a: {
+      handler: function (newValue, oldValue) {
+        console.log(newValue, oldValue)
+      }
+    },
+    b: {
+      handler: function () {
+        console.log("b is changed")
+      }
+    }
+  }
 }
+
 
 </script>
 
