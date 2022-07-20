@@ -5,7 +5,6 @@
     <p>{{a}}</p>
     <p>{{ b }}</p>
   </div>
-
 </template>
  
 <script>
