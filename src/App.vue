@@ -42,7 +42,40 @@ export default {
         console.log("b is changed")
       }
     }
+  },
+  methods: {
+    fn1: function (arg) {
+      console.log(arg)
+    }
+  },
+  beforeCreate: function () {
+    console.log(this.$data, this.$el)
+  },
+  created: function () {
+    console.log(this.$data, this.$el)
+  },
+  beforeMount: function () {
+    console.log(this.$data, this.$el)
+  },
+  mounted: function () {
+    // 保险做法
+    this.$nextTick(function () {
+      console.log(this.$data, this.$el)
+    })
+  },
+  beforeUpdate: function () {
+    console.log("data is not changed")
+  },
+  updated: function () {
+    console.log("data is changed")
+  },
+  beforeDestroy: function () {
+    console.log("data is not destory")
+  },
+  destroyed: function () {
+    console.log("data is destoryed")
   }
+
 }
 
 
