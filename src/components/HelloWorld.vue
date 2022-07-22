@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{msg}}</h1>
+    <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -30,13 +30,16 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <user-info></user-info>
   </div>
 </template>
 
 <script>
+import userInfo from './user-info.vue'
 
 export default {
   name: 'HelloWorld',
+	components: { userInfo },
   props: {
     msg: {
       type: String,
@@ -48,6 +51,32 @@ export default {
         }
       }
     }
+  },
+  // 生命周期函数
+  beforeMount: function () {
+    console.log("beforeMount")
+  },
+  mounted: function () {
+    // 保险做法
+    this.$nextTick(function () {
+      console.log("mounted")
+    })
+  },
+  activated: function () {
+    console.log("activated")
+  },
+  deactivated: function () {
+    console.log("deactivated");
+  },
+  beforeDestroy: function () {
+    console.log("brforeDestory")
+  },
+  destroyed: function () {
+    console.log("destoryed")
+  },
+  errorCaptured:function(err,component,string){
+    console.log("Hello World catch descandent components render error")
+    console.log(err,component,string)
   }
 }
 </script>
@@ -57,14 +86,17 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }

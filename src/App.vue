@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Hello Vue HELLO VUE HEllo VUE" />
+    <keep-alive>
+      <HelloWorld msg="Hello Vue HELLO VUE HEllo VUE" />
+    </keep-alive>
     <p>{{a}}</p>
     <p>{{ b }}</p>
   </div>
@@ -49,31 +51,35 @@ export default {
     }
   },
   beforeCreate: function () {
-    console.log(this.$data, this.$el)
+    console.log("beforeCreate")
   },
   created: function () {
-    console.log(this.$data, this.$el)
+    console.log("created")
   },
   beforeMount: function () {
-    console.log(this.$data, this.$el)
+    console.log("beforeMount")
   },
   mounted: function () {
     // 保险做法
     this.$nextTick(function () {
-      console.log(this.$data, this.$el)
+      console.log("mounted")
     })
   },
   beforeUpdate: function () {
-    console.log("data is not changed")
+    console.log("beforeUpdate")
   },
   updated: function () {
-    console.log("data is changed")
+    console.log("updated")
   },
   beforeDestroy: function () {
-    console.log("data is not destory")
+    console.log("brforeDestory")
   },
   destroyed: function () {
-    console.log("data is destoryed")
+    console.log("destoryed")
+  },
+  errorCaptured:function(err,component,string){
+    console.log("App catch descandent components render error")
+    console.log(err,component,string)
   }
 
 }
