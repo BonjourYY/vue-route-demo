@@ -37,6 +37,8 @@
 <script>
 import userInfo from './user-info.vue'
 
+
+
 export default {
   name: 'HelloWorld',
 	components: { userInfo },
@@ -52,31 +54,15 @@ export default {
       }
     }
   },
-  // 生命周期函数
-  beforeMount: function () {
-    console.log("beforeMount")
+  data:function(){
+    return{
+      pp:"我是依赖注入的对象"
+    }
   },
-  mounted: function () {
-    // 保险做法
-    this.$nextTick(function () {
-      console.log("mounted")
-    })
-  },
-  activated: function () {
-    console.log("activated")
-  },
-  deactivated: function () {
-    console.log("deactivated");
-  },
-  beforeDestroy: function () {
-    console.log("brforeDestory")
-  },
-  destroyed: function () {
-    console.log("destoryed")
-  },
-  errorCaptured:function(err,component,string){
-    console.log("Hello World catch descandent components render error")
-    console.log(err,component,string)
+  provide:function(){
+    return{
+      pp:this.pp
+    }
   }
 }
 </script>

@@ -4,8 +4,7 @@
     <keep-alive>
       <HelloWorld msg="Hello Vue HELLO VUE HEllo VUE" />
     </keep-alive>
-    <p>{{a}}</p>
-    <p>{{ b }}</p>
+    <fuck-world></fuck-world>
   </div>
 </template>
  
@@ -13,10 +12,19 @@
 
 import HelloWorld from './components/HelloWorld.vue'
 
+let FuckWorld = {
+  data:function(){
+    return {
+      age:18
+    }
+  },
+  template:"<p>{{age}}</p>",
+}
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    FuckWorld
   },
   data: () => {
     return {
@@ -50,38 +58,6 @@ export default {
       console.log(arg)
     }
   },
-  beforeCreate: function () {
-    console.log("beforeCreate")
-  },
-  created: function () {
-    console.log("created")
-  },
-  beforeMount: function () {
-    console.log("beforeMount")
-  },
-  mounted: function () {
-    // 保险做法
-    this.$nextTick(function () {
-      console.log("mounted")
-    })
-  },
-  beforeUpdate: function () {
-    console.log("beforeUpdate")
-  },
-  updated: function () {
-    console.log("updated")
-  },
-  beforeDestroy: function () {
-    console.log("brforeDestory")
-  },
-  destroyed: function () {
-    console.log("destoryed")
-  },
-  errorCaptured:function(err,component,string){
-    console.log("App catch descandent components render error")
-    console.log(err,component,string)
-  }
-
 }
 
 
